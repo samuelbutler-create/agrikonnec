@@ -22,7 +22,7 @@ class Config:
     JWT_REFRESH_TOKEN_EXPIRES = int(os.getenv('JWT_REFRESH_TOKEN_EXPIRES', 2592000))
 
     # CORS Configuration
-    CORS_ORIGINS = [origin.strip() for origin in os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000,http://localhost:5174,https://agrikonnect-frontend.vercel.app').split(',')]
+    CORS_ORIGINS = [origin.strip() for origin in os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000,http://localhost:5174,https://agrikonnect-frontend.vercel.app,https://agrikon-git-main-samuelgbgits-projects.vercel.app,https://agrikon-git-bugs-samuekls-projects-fef06831.vercel.app').split(',')]
 
     # Upload Configuration
     UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'uploads')

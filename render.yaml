@@ -20,7 +20,7 @@ services:
       - key: FLASK_ENV
         value: production
       - key: CORS_ORIGINS
-        value: https://agrikonnect-frontend.vercel.app,http://localhost:5173
+        value: https://agrikonnect-frontend.vercel.app,http://localhost:5173,https://agrikon-git-main-samuelgbgits-projects.vercel.app,https://agrikon-git-bugs-samuekls-projects-fef06831.vercel.app
       - key: FRONTEND_URL
         value: https://agrikonnect-frontend.vercel.app
 
