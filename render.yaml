@@ -19,6 +19,10 @@ services:
         value: https://agrikonnect-notifications.onrender.com
       - key: FLASK_ENV
         value: production
+      - key: CORS_ORIGINS
+        value: https://agrikonnect-frontend.vercel.app,http://localhost:5173
+      - key: FRONTEND_URL
+        value: https://agrikonnect-frontend.vercel.app
 
   # Notification Microservice
   - type: web

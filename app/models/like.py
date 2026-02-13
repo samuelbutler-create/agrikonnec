@@ -12,7 +12,7 @@ class Like(BaseModel):
         db.UniqueConstraint('post_id', 'user_id', name='unique_post_like'),
     )
 
-   # String representation for debugging
+   # String representation for debugging, it check if the post and user relationships are loaded to avoid unnecessary database queries
     def to_dict(self):
         return {
             **super().to_dict(),

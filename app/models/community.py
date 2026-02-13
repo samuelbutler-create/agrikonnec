@@ -29,6 +29,7 @@ class Community(BaseModel):
             'category': self.category
         }
         
+        # Include member counts and membership status if requested
         if include_counts:
             data['members_count'] = self.members.count()
             if current_user_id:
