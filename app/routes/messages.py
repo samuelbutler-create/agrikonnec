@@ -11,7 +11,7 @@ import os
 message_ns = Namespace('messages', description='User messages')
 
 # Get CORS origins from environment
-CORS_ORIGINS = [origin.strip() for origin in os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000,http://localhost:5174,https://agrikonnect-frontend.vercel.app').split(',')]
+CORS_ORIGINS = [origin.strip() for origin in os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000,http://localhost:5174,https://agrikonnect-frontend.vercel.app,https://agrikon-git-main-samuelgbgits-projects.vercel.app,https://agrikon-git-bugs-samuekls-projects-fef06831.vercel.app').split(',')]
 
 
 @message_ns.route('/')
