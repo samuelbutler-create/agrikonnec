@@ -48,6 +48,9 @@
 - Main API: `https://<your-service>.railway.app/api/v1`
 - Swagger Docs: `https://<your-service>.railway.app/api/swagger`
 
+## Hosted Deployments:
+- Vercel Hosting: `https://agrikon-ffmz649iu-samuelgbgits-projects.vercel.app`
+
 ## Environment Variables Required:
 
 | Variable | Description | Example |
