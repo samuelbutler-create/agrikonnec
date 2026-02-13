@@ -5,7 +5,8 @@ import os
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-db_url = os.getenv('DATABASE_URL', 'postgresql://pyrxallan:xdttrkallan@localhost:5432/agrikonnect_db')
+# Use SQLite for local development, PostgreSQL for production
+db_url = os.getenv('DATABASE_URL', 'sqlite:///notifications.db')
 if db_url.startswith('postgres://'):
     db_url = db_url.replace('postgres://', 'postgresql://', 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url

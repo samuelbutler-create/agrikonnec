@@ -42,7 +42,7 @@ class User(BaseModel):
 
     # Relationships
     posts = db.relationship('Post', foreign_keys='Post.author_id', lazy=True,
-                        cascade='all, delete-orphan')
+                        cascade='all, delete-orphan', overlaps="authored_posts")
     comments = db.relationship('Comment', foreign_keys='Comment.author_id', lazy=True,
                             cascade='all, delete-orphan')
     messages_sent = db.relationship('Message', foreign_keys='Message.sender_id',

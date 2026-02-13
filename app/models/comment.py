@@ -10,8 +10,8 @@ class Comment(BaseModel):
     community_id = db.Column(db.Integer, db.ForeignKey('communities.id'), nullable=True, index=True)
 
     # Associations and relationships
-    author = db.relationship('User', foreign_keys=[author_id])
-    post = db.relationship('Post', foreign_keys=[post_id])
+    author = db.relationship('User', foreign_keys=[author_id], overlaps="comments")
+    post = db.relationship('Post', foreign_keys=[post_id], overlaps="comments")
     community = db.relationship('Community', foreign_keys=[community_id], backref='community_messages')
 
     # Constraints and indexes for performance and data integrity

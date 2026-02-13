@@ -17,9 +17,9 @@ class Post(BaseModel):
     )
 
     # Relationships
-    author = db.relationship('User', foreign_keys=[author_id], backref='authored_posts')
+    author = db.relationship('User', foreign_keys=[author_id], backref='authored_posts', overlaps="posts")
     comments = db.relationship('Comment', foreign_keys='Comment.post_id', lazy=True,
-                            cascade='all, delete-orphan')
+                            cascade='all, delete-orphan', overlaps="post")
     likes = db.relationship('Like', foreign_keys='Like.post_id', lazy=True,
                             cascade='all, delete-orphan')
 

@@ -30,17 +30,7 @@ class NotificationList(Resource):
             'unread_count': unread_count
         }, 200
 
-@notification_ns.route('/<int:notification_id>/read')
-class NotificationRead(Resource):
-    @jwt_required()
-    def put(self, notification_id):
-        """Mark notification as read"""
-        from ..models.notification import Notification
-        notification = Notification.query.get_or_404(notification_id)
-        notification.is_read = True
-        db.session.commit()
-        return {'message': 'Marked as read'}, 200
-
+# Specific routes must come first (before parameterized routes)
 @notification_ns.route('/read-all')
 class NotificationReadAll(Resource):
     @jwt_required()
@@ -64,6 +54,18 @@ class NotificationUnreadCount(Resource):
         user_id = int(user_identity)
         count = Notification.query.filter_by(user_id=user_id, is_read=False).count()
         return {'count': count}, 200
+
+# Parameterized routes come after specific routes
+@notification_ns.route('/<int:notification_id>/read')
+class NotificationRead(Resource):
+    @jwt_required()
+    def put(self, notification_id):
+        """Mark notification as read"""
+        from ..models.notification import Notification
+        notification = Notification.query.get_or_404(notification_id)
+        notification.is_read = True
+        db.session.commit()
+        return {'message': 'Marked as read'}, 200
 
 @notification_ns.route('/<int:notification_id>')
 class NotificationDelete(Resource):
